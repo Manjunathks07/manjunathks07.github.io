@@ -1,46 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Manjunath KS | Portfolio</title>
-    <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manjunath KS | Backend & AI Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+    .cursor { display: inline-block; width: 10px; background: #f5b301; animation: blink 1s infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #0b0b0b;
+      color: #f5f5f5;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: auto; padding: 60px 24px; }
+    header { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 40px; }
+    h1 { font-size: 52px; margin: 0; }
+    h1 span { color: #f5b301; }
+    h2 { font-size: 26px; font-weight: 400; margin-top: 10px; color: #d1d5db; }
+    p { line-height: 1.7; color: #cbd5e1; }
+    .buttons { margin-top: 30px; display: flex; gap: 16px; }
+    .btn {
+      padding: 14px 26px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+    .btn-primary { background: #f5b301; color: #000; }
+    .btn-outline { border: 2px solid #f5b301; color: #f5b301; }
+    .btn:hover { transform: translateY(-2px); }
+    nav { position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 10; }
+    nav ul { display: flex; gap: 30px; list-style: none; justify-content: center; padding: 20px; margin: 0; }
+    nav li { color: #e5e7eb; font-weight: 500; }
+    nav a { 
+      color: #e5e7eb; 
+      padding-bottom: 5px; 
+      border-bottom: 2px solid transparent; 
+      transition: all 0.3s ease;
+    }
+    nav a:hover { color: #f5b301; }
+    nav a.active { 
+      color: #f5b301; 
+      border-bottom: 2px solid #f5b301; 
+    }
+    section { margin-top: 100px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .card { background: #111; border-radius: 20px; padding: 28px; border: 1px solid #1f2933; }
+    .card h3 { margin-top: 0; color: #f5b301; }
+    footer { text-align: center; padding: 40px; color: #9ca3af; }
+    
+    .contact-icon-circle {
+      width: 80px;
+      height: 80px;
+      background: #1a1a1a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      border: 2px solid #2a2a2a;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const text = "Backend Engineer | AI & Computer Vision";
+      let i = 0;
+      const el = document.getElementById('typing');
+      function type() {
+        if (i < text.length) {
+          el.textContent += text.charAt(i++);
+          setTimeout(type, 60);
+        }
+      }
+      if (el) type();
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add('show');
+        });
+      }, { threshold: 0.2 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // Active navigation tracking
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('nav a');
+      
+      function setActiveNav() {
+        let currentSection = 'home';
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (window.scrollY >= sectionTop - 200) {
+            currentSection = section.getAttribute('id');
+          }
+        });
+        
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + currentSection) {
+            link.classList.add('active');
+          }
+        });
+      }
+      
+      // Set initial active state
+      setActiveNav();
+      
+      // Update on scroll
+      window.addEventListener('scroll', setActiveNav);
+      
+      // Update on click
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        });
+      });
+    });
+  </script>
 </head>
 <body>
 
-<!-- Hero Section -->
-<section id="hero">
-    <img src="images/profile.jpg" alt="Profile Photo">
-    <h1>Manjunath KS</h1>
-    <p>Backend Engineer | AI & Computer Vision | FastAPI, Python, .NET</p>
-</section>
+<nav>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-<!-- About -->
-<section id="about">
-    <h2>About Me</h2>
-    <p>I am a backend engineer with 4.8+ years of experience building scalable systems and AI solutions...</p>
-</section>
-
-<!-- Skills -->
-<section id="skills">
-    <h2>Skills</h2>
-    <ul>
-        <li>FastAPI</li>
-        <li>Python</li>
-        <li>Computer Vision</li>
-        <li>.NET</li>
-        <li>OCR & FAISS</li>
-    </ul>
-</section>
-
-<!-- Projects -->
-<section id="projects">
-    <h2>Projects</h2>
-    <div class="project-card">
-        <h3>Vision AI – OCR & Few-Shot</h3>
-        <p>FastAPI backend for OCR & image similarity using FAISS</p>
+<div class="container" id="home">
+  <header>
+    <div>
+      <h1>I'm <span>Manjunath KS</span></h1>
+      <h2><span id="typing"></span><span class="cursor"></span></h2>
+      <p>
+        Backend Engineer with 4.8+ years of experience building enterprise-grade systems, automation platforms, and AI-powered Vision solutions. Specialized in Python, FastAPI, .NET, OCR, and Few-Shot Learning.
+      </p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/manjunath-ks-b12992203/" target="_blank">LinkedIn</a>
+        <a class="btn btn-outline" href="https://github.com/Manjunathks07" target="_blank">GitHub</a>
+      </div>
     </div>
+  </header>
+
+  <section id="about" class="reveal">
+  <h2>About Me</h2>
+  <div class="grid" style="grid-template-columns: 300px 1fr; align-items: start;">
+    <div class="card">
+      <img src="assets/images/profile.jpg" alt="Manjunath KS" style="width:100%; border-radius:16px; margin-bottom:20px;" />
+      <p><b>Name:</b> Manjunath KS</p>
+      <p><b>Education:</b> Bachelor of Engineering (ECE)</p>
+      <p><b>Experience:</b> 4.8+ Years</p>
+      <h3 style="margin-top:24px;">Skills</h3>
+      <ul>
+        <li>Python, C#, .NET</li>
+        <li>FastAPI, Flask, REST APIs</li>
+        <li>Computer Vision & OCR</li>
+        <li>Few-Shot Learning, FAISS</li>
+        <li>Enterprise Automation</li>
+        <li>SQL, Git, Docker</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Backend & AI Engineer</h3>
+      <p>
+        I am a Backend Engineer with 4.8+ years of experience designing and building enterprise-grade automation platforms and scalable backend systems. My core expertise lies in C#, ASP.NET, and Python-based backend services.
+      </p>
+      <p>
+        Over the years, I have worked extensively on Windows-based and web applications, owning end-to-end feature development, production deployments, and performance optimizations. I am experienced in handling production issues, root cause analysis, and delivering stable long-term solutions.
+      </p>
+      <p>
+        Recently, I have been focused on building AI-powered Vision systems, including OCR pipelines and Few-Shot Learning–based image identification solutions. I enjoy solving real-world problems where backend engineering meets applied AI, especially in automation and system intelligence.
+      </p>
+      <p>
+        I am passionate about building reliable, scalable systems and continuously upgrading my skill set to work on modern backend and AI-driven products.
+      </p>
+    </div>
+  </div>
 </section>
+
+  <section id="experience" class="reveal">
+  <h2 style="text-align:center; font-size:48px;">Experience</h2>
+  
+  <div class="card" style="margin-top:40px;">
+    <h3 style="font-size:32px; margin-bottom:8px;">Mphasis Limited</h3>
+    <p style="color:#9ca3af; font-size:18px; margin-bottom:30px;">Apr 2021 – Present</p>
+    
+    <div style="margin-bottom:40px;">
+      <h4 style="color:#f5b301; font-size:22px; margin-bottom:12px;">Software Engineer – Backend & Automation</h4>
+      <p><b>Project:</b> Scalable Test Framework (STF)</p>
+      <ul>
+        <li>Designed and developed backend components for enterprise Windows and Web applications using C# and ASP.NET.</li>
+        <li>Built and maintained Windows Services supporting large-scale automation workflows.</li>
+        <li>Owned end-to-end delivery from requirement analysis to production deployment.</li>
+        <li>Optimized backend logic to improve stability and performance of automation pipelines.</li>
+        <li>Handled production issues, root cause analysis, and long-term fixes.</li>
+        <li>Collaborated with clients and cross-functional teams to deliver enhancements on time.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 style="color:#f5b301; font-size:22px; margin-bottom:12px;">AI Vision</h4>
+      <p><b>Project:</b> Internal AI Initiatives</p>
+      <ul>
+        <li>Designed an AI-powered Vision system similar to Azure Vision for screen and UI intelligence.</li>
+        <li>Implemented OCR pipelines using EasyOCR and PaddleOCR with bounding box extraction.</li>
+        <li>Built few-shot learning–based image similarity detection using ORB and FAISS.</li>
+        <li>Optimized inference pipelines to achieve sub-500ms latency using async and parallel execution.</li>
+        <li>Developed FastAPI REST APIs delivering structured JSON for real-time automation.</li>
+      </ul>
+      <p><b>Technologies:</b> Python, FastAPI, OpenCV, EasyOCR, PaddleOCR, FAISS, NumPy</p>
+    </div>
+  </div>
+</section>
+
+  <section id="projects" class="reveal">
+    <h2 style="text-align:center; font-size:48px; margin-bottom:40px;">Projects</h2>
+    
+    <div class="grid">
+      <div class="card">
+        <h3>Few-Shot Learning Image Classifier</h3>
+        <p style="color:#9ca3af; margin-bottom:16px;">
+          <a href="https://github.com/Manjunathks07/few-shot-learning" target="_blank" style="color:#f5b301; text-decoration:underline;">View on GitHub</a>
+        </p>
+        <p>
+          A production-ready few-shot learning system that can learn to classify images with just 3-10 examples per class. This project implements a few-shot learning model using limited training samples, leveraging metric-based approaches like Prototypical Networks to enable fast generalization on unseen classes with minimal labeled data.
+        </p>
+        <h4 style="color:#f5b301; font-size:18px; margin-top:24px; margin-bottom:12px;">Key Features:</h4>
+        <ul>
+          <li>Classify images with only 3-10 training examples per class</li>
+          <li>Implements Prototypical Networks for metric-based learning</li>
+          <li>Fast generalization on unseen classes with minimal labeled data</li>
+          <li>Production-ready system with easy-to-use train and predict scripts</li>
+          <li>Ideal for tasks where collecting large datasets is impractical</li>
+        </ul>
+        <h4 style="color:#f5b301; font-size:18px; margin-top:24px; margin-bottom:12px;">Technologies Used:</h4>
+        <p style="margin-bottom:0;"><b>Python, PyTorch, Few-Shot Learning, Prototypical Networks, Computer Vision, Deep Learning</b></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="resume" class="reveal">
+  <h2 style="text-align:center; font-size:48px;">Resume</h2>
+  <p style="text-align:center; max-width:900px; margin:20px auto 40px; color:#cbd5e1;">
+    Experienced Backend Software Engineer with 4.8+ years of experience building enterprise automation platforms and AI-powered backend systems. Strong expertise in .NET, Python, FastAPI, Computer Vision, and scalable system design.
+  </p>
+
+  <div class="card" style="padding:0; overflow:hidden;">
+    <iframe
+      src="https://drive.google.com/file/d/17hKclbEPw1fcUSIuXL1drTkuXYzyW7Hk/preview"
+      width="100%"
+      height="900px"
+      style="border:none; background:#111;"
+      allow="autoplay">
+    </iframe>
+  </div>
+
+  <div style="text-align:center; margin-top:30px;">
+    <a class="btn btn-primary" href="https://drive.google.com/uc?export=download&id=17hKclbEPw1fcUSIuXL1drTkuXYzyW7Hk" target="_blank">
+      Download Resume (PDF)
+    </a>
+  </div>
+</section>
+
+  <section id="contact" class="reveal">
+    <h2 style="text-align:center; font-size:48px; margin-bottom:80px;">Contact Me</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1100px; margin: 0 auto 80px;">
+      
+      <!-- Address -->
+      <div style="text-align:center;">
+        <div class="contact-icon-circle">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f5b301" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+        <h3 style="font-size:16px; font-weight:700; margin-bottom:12px; letter-spacing:0.5px; color:#fff;">ADDRESS</h3>
+        <p style="color:#9ca3af; margin:0; font-size:15px;">Bengaluru, India</p>
+      </div>
+
+      <!-- Email Address -->
+      <div style="text-align:center;">
+        <div class="contact-icon-circle">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f5b301" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+        </div>
+        <h3 style="font-size:16px; font-weight:700; margin-bottom:12px; letter-spacing:0.5px; color:#fff;">EMAIL ADDRESS</h3>
+        <p style="color:#9ca3af; margin:0; font-size:15px;">Manju4233@gmail.com</p>
+      </div>
+
+      <!-- Download Resume -->
+      <div style="text-align:center;">
+        <div class="contact-icon-circle">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f5b301" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14,2 14,8 20,8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+          </svg>
+        </div>
+        <h3 style="font-size:16px; font-weight:700; margin-bottom:12px; letter-spacing:0.5px; color:#fff;">DOWNLOAD RESUME</h3>
+        <p style="color:#9ca3af; margin:0; font-size:15px;">
+          <a href="https://drive.google.com/uc?export=download&id=17hKclbEPw1fcUSIuXL1drTkuXYzyW7Hk" target="_blank" style="color:#f5b301; transition:opacity 0.3s; font-weight:600;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Link</a>
+        </p>
+      </div>
+
+      <!-- LinkedIn -->
+      <div style="text-align:center;">
+        <div class="contact-icon-circle">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f5b301" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </div>
+        <h3 style="font-size:16px; font-weight:700; margin-bottom:12px; letter-spacing:0.5px; color:#fff;">LINKEDIN</h3>
+        <p style="color:#9ca3af; margin:0; font-size:15px;">
+          <a href="https://www.linkedin.com/in/manjunath-ks-b12992203/" target="_blank" style="color:#f5b301; transition:opacity 0.3s; font-weight:600;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Link</a>
+        </p>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:60px; padding-bottom:60px;">
+      <p style="font-size:32px; color:#f5f5f5; margin-bottom:30px;">Have a Question?</p>
+      <a href="mailto:Manju4233@gmail.com" class="btn btn-primary" style="display:inline-block; font-size:16px; letter-spacing:1px; padding:16px 40px;">CLICK HERE</a>
+    </div>
+  </section>
+</div>
+
+<footer style="background:#0b0b0b; padding:30px; text-align:center; border-top:1px solid #1f2933;">
+  <p style="margin:0; color:#9ca3af; font-size:14px;">© 2026 Manjunath KS. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
