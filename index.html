@@ -1,593 +1,454 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manjunath KS | Senior .NET Developer & Backend Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Manjunath KS | Senior .NET Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<!-- Scroll Progress Bar -->
-<div class="progress-bar" id="progressBar"></div>
+<div id="glow" aria-hidden="true"><div id="glow-dot"></div></div>
 
-<!-- Navigation -->
-<nav id="navbar">
-  <div class="container">
-    <div class="logo">Manjunath KS</div>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
+<!-- Nav -->
+<nav>
+  <div class="nav-in">
+    <a href="#" class="nav-brand">Manjunath KS Portfolio</a>
+    <div class="nav-links">
+      <a href="#about"      class="nav-btn">About</a>
+      <a href="#experience" class="nav-btn">Experience</a>
+      <a href="#education"  class="nav-btn">Education</a>
+      <a href="#projects"   class="nav-btn">Projects</a>
+      <a href="#contact"    class="nav-btn">Contact</a>
+      <button class="nav-icon" id="themeBtn"><i class="fas fa-moon" id="themeIco"></i></button>
+      <a href="https://drive.google.com/file/d/1EFCea8fCDG8jjx5LVPgeZFO3wh2TvalT/view" target="_blank" class="btn-nav">
+        <i class="fas fa-download"></i> Resume
+      </a>
     </div>
-    <ul class="nav-links" id="navMenu">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li>
-        <div class="theme-toggle" onclick="toggleTheme()">
-          <i class="fas fa-moon" id="themeIcon"></i>
-        </div>
-      </li>
-      <li>
-        <a href="https://drive.google.com/file/d/1EFCea8fCDG8jjx5LVPgeZFO3wh2TvalT/view" class="btn-resume">
-          <i class="fas fa-download"></i> <span>Resume</span>
-        </a>
-      </li>
-    </ul>
+    <button class="menu-tog" id="menuBtn"><i class="fas fa-bars" id="menuIco"></i></button>
+  </div>
+  <div class="mob-nav" id="mobNav">
+    <a href="#about"      onclick="closeMob()">About</a>
+    <a href="#experience" onclick="closeMob()">Experience</a>
+    <a href="#education"  onclick="closeMob()">Education</a>
+    <a href="#projects"   onclick="closeMob()">Projects</a>
+    <a href="#contact"    onclick="closeMob()">Contact</a>
+    <button onclick="toggleTheme()"><i class="fas fa-moon"></i> Toggle theme</button>
   </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="hero-left">
-      <div class="profile-container">
-        <div class="profile-ring"></div>
-        <div class="profile-image">
-          <img src="assets/images/profile.jpg" alt="Manjunath KS" onerror="this.style.display='none'; this.parentElement.textContent='MKS';" />
+<!-- Hero -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-l">
+        <div class="av-wrap">
+          <div class="av-glow"></div>
+          <div class="av-img">
+            <img src="assets/images/profile.jpg" alt="Manjunath KS" onerror="this.style.display='none'">
+          </div>
+        </div>
+        <div class="hero-loc"><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka</div>
+        <div class="hero-soc">
+          <a href="https://www.linkedin.com/in/manjunath-ks-b12992203/" target="_blank" class="soc-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/Manjunathks07"                    target="_blank" class="soc-btn"><i class="fab fa-github"></i></a>
         </div>
       </div>
-      <div class="location">
-        <i class="fas fa-map-marker-alt"></i>
-        Bengaluru, Karnataka
-      </div>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/manjunath-ks-b12992203/" target="_blank" class="social-link">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/Manjunathks07" target="_blank" class="social-link">
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="hero-badge">
-        <i class="fas fa-rocket"></i> Open to Work
-      </div>
-      <h1>Hi, I'm <span class="highlight">Manjunath KS</span></h1>
-      <p class="subtitle">
-        Senior .NET Developer with 5 years of expertise in designing and delivering scalable enterprise applications using C#, ASP.NET MVC, ASP.NET Core, and .NET Framework. Proven track record in building high-performance backend systems, RESTful APIs, and production-grade automation platforms serving large-scale enterprise workflows. Strong proficiency in SQL Server optimization, Windows Services, IIS deployment, and Azure cloud services.
-      </p>
-      <div class="hero-buttons">
-        <a href="https://drive.google.com/file/d/1EFCea8fCDG8jjx5LVPgeZFO3wh2TvalT/view" class="btn-primary">
-          <i class="fas fa-download"></i> Download Resume
-        </a>
-        <a href="#contact" class="btn-outline">
-          <i class="fas fa-envelope"></i> Get in Touch
-        </a>
+      <div class="hero-r">
+        <span class="badge b-open" style="margin-bottom:.85rem;display:inline-flex">Open to Work</span>
+        <h1 class="hero-h tw">Hi, I'm Manjunath KS</h1>
+        <p class="hero-sub">.NET Developer with 5 years of expertise in designing and delivering scalable enterprise applications using C#, ASP.NET MVC, ASP.NET, and .NET Framework. Proven track record in building high-performance backend systems, RESTful APIs, and production-grade automation platforms serving large-scale enterprise workflows. Strong proficiency in SQL Server optimization, Windows Services, IIS deployment, and Azure cloud services.</p>
+        <div class="hero-btns">
+          <a href="https://drive.google.com/file/d/1EFCea8fCDG8jjx5LVPgeZFO3wh2TvalT/view" target="_blank" class="btn-p"><i class="fas fa-download"></i> Download Resume</a>
+          <a href="#contact" class="btn-o"><i class="fas fa-envelope"></i> Get in Touch</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Stats Section -->
-<div class="stats">
-  <div class="stats-container">
-    <div class="stat-card">
-      <div class="stat-icon">
-        <i class="fas fa-clock"></i>
-      </div>
-      <div class="stat-number" data-target="5">5</div>
-      <div class="stat-label">Years Experience</div>
+<!-- Stats -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats-g">
+      <div class="card st-card"><div class="st-num" id="s0">0</div><p class="st-lbl">years of experience</p></div>
+      <div class="card st-card"><div class="st-num" id="s1">0</div><p class="st-lbl">production features delivered</p></div>
+      <div class="card st-card"><div class="st-num txt">C#, .NET, ASP.NET MVC, MySQL, Azure</div><p class="st-lbl">Core Tech Stack</p></div>
     </div>
-    <div class="stat-card">
-      <div class="stat-icon">
-        <i class="fas fa-code-branch"></i>
-      </div>
-      <div class="stat-number" data-target="15">15+</div>
-      <div class="stat-label">Production Features</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-icon">
-        <i class="fas fa-server"></i>
-      </div>
-      <div class="stat-number stat-text">C#, ASP.NET,ASP.NET MVC, Azure, CI/CD</div>
-      <div class="stat-label">Tech Stacks</div>
-    </div>
-  </div>
-</div>
-
-<!-- About Section -->
-<section id="about">
-  <div class="section-header">
-    <div class="section-icon">
-      <i class="fas fa-user"></i>
-    </div>
-    <h2>About Me</h2>
-  </div>
-  
-  <div class="about-box">
-    <p class="about-paragraph">
-      <span class="about-label">Professional Summary:</span> Results-driven Senior .NET Developer with 5 years of expertise in designing and delivering scalable enterprise applications using C#, ASP.NET MVC, ASP.NET Core, and .NET Framework. Proven track record in building high-performance backend systems, RESTful APIs, and production-grade automation platforms serving large-scale enterprise workflows. Strong proficiency in SQL Server optimization, Windows Services, IIS deployment, and Azure cloud services.
-    </p>
-    
-    <p class="about-paragraph">
-      <span class="about-label">Technical Expertise:</span> Experienced with CI/CD pipelines using Jenkins and DevOps practices. Demonstrated ability to own features end-to-end from architecture design through production deployment, consistently delivering solutions that improve system reliability and reduce operational failures by 20%. Strong understanding of OOP principles, SOLID design principles, and enterprise design patterns including MVC, Repository, and Dependency Injection.
-    </p>
-    
-    <p class="about-paragraph">
-      <span class="about-label">Professional Experience:</span> Currently working as a Senior Software Engineer at Mphasis Limited, where I architect and develop scalable backend components for enterprise automation platforms. I've successfully delivered 15+ production features with zero critical defects, implemented CI/CD practices reducing deployment time by 40%, and improved SQL query performance by 30% through optimization strategies. My work spans building RESTful APIs, Windows Services, Azure cloud deployments, and full-stack web applications using ASP.NET MVC.
-    </p>
-    
-    <p class="about-paragraph">
-      <span class="about-label">Collaboration & Leadership:</span> Proven ability to work closely with client stakeholders, translate business requirements into technical solutions, and thrive in Agile environments with cross-functional collaboration. I conduct code reviews and mentor junior developers on .NET best practices, design patterns, and SOLID principles.
-    </p>
-    
-    <p class="about-paragraph">
-      <span class="about-label">Open to Work:</span> I'm currently open to full-time roles in .NET backend development, enterprise application architecture, and cloud-native development, particularly in teams focused on building scalable, reliable, and production-grade systems.
-    </p>
   </div>
 </section>
 
-<!-- Technical Skills Section -->
-<section id="skills">
-  <div class="section-header">
-    <div class="section-icon">
-      <i class="fas fa-layer-group"></i>
+<!-- Weather -->
+<section id="weather">
+    <div class="scroll-h">
+      <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})"><i class="fas fa-chevron-down"></i></button>
     </div>
-    <h2>Core Technical Skills</h2>
-  </div>
+</section>
 
-  <div class="skills-grid">
-    <div class="skill-category">
-      <div class="skill-category-header">
-        <i class="fas fa-code"></i>
-        <h3>Programming Languages</h3>
-      </div>
-      <div class="skill-tags">
-        <span class="skill-tag">C#</span>
-        <span class="skill-tag">Python</span>
-      </div>
-    </div>
-
-    <div class="skill-category">
-      <div class="skill-category-header">
-        <i class="fas fa-server"></i>
-        <h3>Frameworks & Backend</h3>
-      </div>
-      <div class="skill-tags">
-        <span class="skill-tag">.NET Framework</span>
-        <span class="skill-tag">.NET Core</span>
-        <span class="skill-tag">ASP.NET MVC</span>
-        <span class="skill-tag">ASP.NET Core</span>
-        <span class="skill-tag">ASP.NET WebForms</span>
-        <span class="skill-tag">FastAPI</span>
-      </div>
-    </div>
-
-    <div class="skill-category">
-      <div class="skill-category-header">
-        <i class="fas fa-database"></i>
-        <h3>Databases & ORM</h3>
-      </div>
-      <div class="skill-tags">
-        <span class="skill-tag">SQL Server</span>
-        <span class="skill-tag">MySQL</span>
-        <span class="skill-tag">Entity Framework</span>
-        <span class="skill-tag">ADO.NET</span>
-      </div>
-    </div>
-
-    <div class="skill-category">
-      <div class="skill-category-header">
-        <i class="fas fa-cloud"></i>
-        <h3>Cloud & DevOps</h3>
-      </div>
-      <div class="skill-tags">
-        <span class="skill-tag">Azure App Services</span>
-        <span class="skill-tag">Azure Storage</span>
-        <span class="skill-tag">Azure VMs</span>
-        <span class="skill-tag">Application Insights</span>
-        <span class="skill-tag">Jenkins</span>
-        <span class="skill-tag">CI/CD</span>
-        <span class="skill-tag">Git</span>
-      </div>
-    </div>
-
-    <div class="skill-category">
-      <div class="skill-category-header">
-        <i class="fas fa-project-diagram"></i>
-        <h3>Architecture & Design</h3>
-      </div>
-      <div class="skill-tags">
-        <span class="skill-tag">RESTful APIs</span>
-        <span class="skill-tag">MVC Pattern</span>
-        <span class="skill-tag">Repository Pattern</span>
-        <span class="skill-tag">Dependency Injection</span>
-        <span class="skill-tag">SOLID Principles</span>
-      </div>
-    </div>
-
-    <div class="skill-category">
-      <div class="skill-category-header">
-        <i class="fas fa-globe"></i>
-        <h3>Web Technologies</h3>
-      </div>
-      <div class="skill-tags">
-        <span class="skill-tag">HTML5</span>
-        <span class="skill-tag">CSS3</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">IIS</span>
-      </div>
-    </div>
-
-    <div class="skill-category">
-      <div class="skill-category-header">
-        <i class="fas fa-robot"></i>
-        <h3>AI & Computer Vision</h3>
-      </div>
-      <div class="skill-tags">
-        <span class="skill-tag">OpenCV</span>
-        <span class="skill-tag">EasyOCR</span>
-        <span class="skill-tag">PaddleOCR</span>
-        <span class="skill-tag">FAISS</span>
-      </div>
-    </div>
-
-    <div class="skill-category">
-      <div class="skill-category-header">
-        <i class="fas fa-tools"></i>
-        <h3>Development Tools</h3>
-      </div>
-      <div class="skill-tags">
-        <span class="skill-tag">Visual Studio</span>
-        <span class="skill-tag">VS Code</span>
-        <span class="skill-tag">SSMS</span>
-      </div>
-    </div>
-
-    <div class="skill-category">
-      <div class="skill-category-header">
-        <i class="fas fa-tasks"></i>
-        <h3>Methodologies</h3>
-      </div>
-      <div class="skill-tags">
-        <span class="skill-tag">Agile/Scrum</span>
-        <span class="skill-tag">SDLC</span>
-        <span class="skill-tag">TDD</span>
-        <span class="skill-tag">Code Reviews</span>
-      </div>
-    </div>
-
-    <div class="skill-category">
-      <div class="skill-category-header">
-        <i class="fas fa-star"></i>
-        <h3>Additional</h3>
-      </div>
-      <div class="skill-tags">
-        <span class="skill-tag">Linux</span>
-        <span class="skill-tag">BeagleBone Black</span>
-        <span class="skill-tag">Raspberry Pi</span>
+<!-- About -->
+<section id="about" class="sec sec-muted">
+  <div class="wrap">
+    <div class="sec-hd"><div class="sec-ico"><i class="fas fa-user"></i></div><h2>About Me</h2></div>
+    <div class="card cp">
+      <div class="prose">
+        <p><span class="plbl">Professional Summary:</span> Results-driven .NET Developer with 5 years of expertise in designing and delivering scalable enterprise applications using C#, ASP.NET MVC, and .NET Framework. Proven track record in building high-performance backend systems, RESTful APIs, and production-grade automation platforms serving large-scale enterprise workflows. Strong proficiency in SQL Server optimization, Windows Services, IIS deployment, and Azure cloud services.</p>
+        <p><span class="plbl">Technical Expertise:</span> Experienced with CI/CD pipelines using Jenkins and DevOps practices. Demonstrated ability to own features end-to-end from architecture design through production deployment, consistently delivering solutions that improve system reliability and reduce operational failures by 20%. Strong understanding of OOP principles, SOLID design principles, and enterprise design patterns including MVC, Repository, and Dependency Injection.</p>
+        <p><span class="plbl">Professional Experience:</span> Currently working as a Software Engineer at Mphasis Limited, where I architect and develop scalable backend components for enterprise automation platforms. I've successfully delivered 15+ production features with zero critical defects, implemented CI/CD practices reducing deployment time by 40%, and improved SQL query performance by 30% through optimization strategies. My work spans building RESTful APIs, Windows Services, Azure cloud deployments, and full-stack web applications using ASP.NET MVC.</p>
+        <p><span class="plbl">Collaboration & Leadership:</span> Proven ability to work closely with client stakeholders, translate business requirements into technical solutions, and thrive in Agile environments with cross-functional collaboration. I conduct code reviews and mentor junior developers on .NET best practices, design patterns, and SOLID principles.</p>
+        <p><span class="plbl">Open to Work:</span> I'm currently open to full-time roles in .NET backend development, enterprise application architecture, and cloud-native development, particularly in teams focused on building scalable, reliable, and production-grade systems.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Experience Section -->
-<section id="experience">
-  <div class="section-header">
-    <div class="section-icon">
-      <i class="fas fa-briefcase"></i>
-    </div>
-    <h2>Professional Experience</h2>
-  </div>
-  
-  <div class="card experience-card">
-    <div class="experience-header">
-      <div>
-        <h3>Senior Software Engineer – .NET Backend & Automation</h3>
-        <div class="company-info">
-          <i class="fas fa-building"></i>
-          <span>Mphasis Limited</span>
-          <span class="location-divider">•</span>
-          <i class="fas fa-map-marker-alt"></i>
-          <span>Bengaluru, India</span>
+<!-- Experience -->
+<section id="experience" class="sec">
+  <div class="wrap">
+    <div class="sec-hd"><div class="sec-ico"><i class="fas fa-briefcase"></i></div><h2>Experience</h2></div>
+    <div class="exp-timeline">
+      <div class="exp-item">
+      <div class="card cp">
+        <div class="exp-hd">
+          <div>
+            <div class="exp-ttl">Software Engineer – Vision AI</div>
+            <div class="exp-meta">
+              <span><i class="fas fa-building" style="color:var(--primary)"></i> Mphasis Limited</span>
+              <span><i class="fas fa-map-marker-alt" style="color:var(--primary)"></i> Bengaluru, India</span>
+            </div>
+          </div>
+          <span class="badge b-out" style="display:flex;align-items:center;gap:.25rem;flex-shrink:0"><i class="fas fa-calendar" style="font-size:9px"></i> Jan 2024 – Present</span>
+        </div>
+
+        <p class="exp-desc">Designed and built Vision AI system using FastAPI to detect text and UI elements from screens with OCR pipelines, integrated with enterprise automation workflows.</p>
+        <div class="ach">
+          <h4>Key Achievements:</h4>
+          <ul>
+            <li><span class="dot"></span>Built RESTful APIs returning structured JSON for real-time integration with automation systems.</li>
+            <li><span class="dot"></span>Optimized inference pipelines achieving sub-500ms latency using parallel processing and FAISS indexing for image similarity search.</li>
+            <li><span class="dot"></span>Integrated Vision AI with STF to eliminate legacy screen-reading dependencies.</li>
+          </ul>
+        </div>
+
+        <div class="tw-wrap" style="margin-top:.85rem">
+          <span class="badge b-sec">Python</span><span class="badge b-sec">FastAPI</span><span class="badge b-sec">EasyOCR</span>
+          <span class="badge b-sec">OCR</span><span class="badge b-sec">RESNET 18</span><span class="badge b-sec">Azure Compute Vision</span>
+          <span class="badge b-sec">RESTful APIs</span><span class="badge b-sec">FlaskAPI</span>
         </div>
       </div>
-      <div class="period-tag">
-        <i class="fas fa-calendar"></i>
-        April 2021 – Present
       </div>
-    </div>
-    
-    <p class="experience-description">
-      <strong>Project: Enterprise Test Automation Platform (Scalable Test Framework)</strong>
-    </p>
-    <p class="experience-description">
-      Built and maintained a large-scale Windows-based automation platform executing and monitoring test workflows across distributed enterprise environments. Integrated with internal ASP.NET MVC web applications for centralized asset management, execution orchestration, and reporting analytics.
-    </p>
-    <p class="experience-description" style="margin-top: 10px;">
-      <strong>Tech Stack:</strong> C#, .NET Framework, ASP.NET MVC, ASP.NET WebForms, SQL Server, MySQL, Azure, Jenkins, IIS, Windows Services
-    </p>
-
-    <h4>Key Achievements & Responsibilities:</h4>
-    <ul>
-      <li>Architected and developed scalable backend components for enterprise automation platform, improving execution stability by 25% and reducing system downtime.</li>
-      <li>Designed and implemented RESTful APIs using ASP.NET MVC to expose automation services, enabling seamless integration with multiple client systems and third-party tools.</li>
-      <li>Built and maintained Windows Services supporting large-scale automated workflows, ensuring 24/7 operation with minimal intervention.</li>
-      <li>Implemented CI/CD pipelines using Jenkins for automated builds, testing, and deployments, reducing deployment time by 40% and minimizing manual errors.</li>
-      <li>Deployed and managed applications on Azure App Services with automated scaling, monitoring, and diagnostics using Azure Application Insights.</li>
-      <li>Owned complete SDLC for critical features including design, development, testing, deployment, and production support across multiple releases.</li>
-      <li>Optimized SQL Server queries and stored procedures, reducing execution time by 30% and improving database performance for high-concurrency scenarios.</li>
-      <li>Performed root-cause analysis on production issues using application logs, debugging tools, and profiling techniques; implemented permanent fixes reducing recurring failures by 20%.</li>
-      <li>Collaborated with cross-functional teams and client stakeholders in Agile sprints, consistently delivering enhancements on schedule with zero critical defects.</li>
-      <li>Conducted code reviews and mentored junior developers on .NET best practices, design patterns (Repository, Dependency Injection), and SOLID principles.</li>
-    </ul>
-
-    <h4>Associated Web Applications:</h4>
-    
-    <div class="sub-project">
-      <h5>Asset & Peripheral Management System</h5>
-      <p style="margin: 5px 0; font-style: italic; color: var(--text-secondary);">ASP.NET MVC Web Application</p>
-      <p style="margin: 10px 0;">Developed a comprehensive ASP.NET MVC application for enterprise asset inventory management, availability tracking, and reservation workflows integrated with SQL Server backend.</p>
-      <ul>
-        <li>Designed MVC architecture with clean separation of concerns using Controllers, ViewModels, and Repository pattern for maintainable, testable code.</li>
-        <li>Implemented role-based authorization, authentication, and server-side validations to ensure data security and compliance.</li>
-        <li>Optimized database interactions using Entity Framework and ADO.NET, implementing connection pooling and efficient query patterns.</li>
-        <li>Configured Jenkins pipelines for continuous integration and automated testing, ensuring code quality and faster release cycles.</li>
-        <li>Integrated with backend automation services via REST APIs to validate resource availability before execution workflows.</li>
-      </ul>
-    </div>
-
-    <div class="sub-project">
-      <h5>Automation Report Server</h5>
-      <p style="margin: 5px 0; font-style: italic; color: var(--text-secondary);">ASP.NET WebForms Application</p>
-      <ul>
-        <li>Built reporting application using ASP.NET WebForms to generate detailed execution reports in Excel format with session-wise data.</li>
-        <li>Generated comprehensive reports including logs, timestamps, pass/fail metrics, and execution traces for stakeholder analysis.</li>
-        <li>Leveraged Azure Blob Storage for secure storage and retrieval of generated reports with automated retention policies.</li>
-        <li>Enabled historical tracking capabilities and faster root-cause analysis, reducing incident resolution time by 35%.</li>
-      </ul>
-    </div>
-
-    <h4>AI Project: Vision AI – OCR & Screen Intelligence System</h4>
-    <p style="margin: 10px 0; font-style: italic; color: var(--text-secondary);">Tech Stack: Python, FastAPI, OpenCV, EasyOCR, PaddleOCR, FAISS</p>
-    
-    <ul>
-      <li>Designed and developed Vision AI system using FastAPI to detect text and UI elements from screens with OCR pipelines.</li>
-      <li>Built RESTful APIs returning structured JSON for real-time integration with automation systems.</li>
-      <li>Optimized inference pipelines achieving sub-500ms latency using parallel processing and FAISS indexing for image similarity search.</li>
-    </ul>
-    
-    <div class="tech-tags">
-      <span class="tech-tag">C#</span>
-      <span class="tech-tag">.NET Framework</span>
-      <span class="tech-tag">.NET Core</span>
-      <span class="tech-tag">ASP.NET MVC</span>
-      <span class="tech-tag">ASP.NET Core</span>
-      <span class="tech-tag">Entity Framework</span>
-      <span class="tech-tag">RESTful APIs</span>
-      <span class="tech-tag">SQL Server</span>
-      <span class="tech-tag">Azure</span>
-      <span class="tech-tag">Jenkins</span>
-      <span class="tech-tag">CI/CD</span>
-      <span class="tech-tag">IIS</span>
-      <span class="tech-tag">Windows Services</span>
-    </div>
-  </div>
-</section>
-
-<!-- Education Section -->
-<section id="education">
-  <div class="section-header">
-    <div class="section-icon">
-      <i class="fas fa-graduation-cap"></i>
-    </div>
-    <h2>Education</h2>
-  </div>
-  
-  <div class="card experience-card">
-    <div class="experience-header">
-      <div>
-        <h3>Bachelor of Engineering: Electronics and Communication Engineering</h3>
-        <div class="company-info">
-          <i class="fas fa-university"></i>
-          <span>Visvesvaraya Technological University (VTU)</span>
+      <div class="exp-item">
+      <div class="card cp">
+        <div class="exp-hd">
+          <div>
+            <div class="exp-ttl">Software Engineer – Web Development</div>
+            <div class="exp-meta">
+              <span><i class="fas fa-building" style="color:var(--primary)"></i> Mphasis Limited</span>
+              <span><i class="fas fa-map-marker-alt" style="color:var(--primary)"></i> Bengaluru, India</span>
+            </div>
+          </div>
+          <span class="badge b-out" style="display:flex;align-items:center;gap:.25rem;flex-shrink:0"><i class="fas fa-calendar" style="font-size:9px"></i> Jul 2021 – Present</span>
         </div>
-        <div class="company-info" style="margin-top: 5px;">
-          <i class="fas fa-building"></i>
-          <span>East West Institute of Technologies</span>
+
+        <p class="exp-desc">Developed and maintained ASP.NET MVC and WebForms web applications for enterprise asset management, execution orchestration, and reporting analytics — integrated with the backend automation platform.</p>
+
+        <div class="sub-sec">
+          <div class="sub-sec-ttl">Asset &amp; Peripheral Management System <span style="font-weight:400;color:var(--muted)">— ASP.NET MVC</span></div>
+          <div class="ach"><ul>
+            <h4>Key Achievements:</h4>
+            <li><span class="dot"></span>Designed MVC architecture with clean separation of concerns using Controllers, ViewModels, and Repository pattern.</li>
+            <li><span class="dot"></span>Implemented role-based authorization, authentication, and server-side validations to ensure data security.</li>
+            <li><span class="dot"></span>Optimized database interactions using Entity Framework and ADO.NET with connection pooling and efficient query patterns.</li>
+            <li><span class="dot"></span>Integrated with backend automation services via REST APIs to validate resource availability before execution workflows.</li>
+          </ul></div>
+        </div>
+
+        <div class="sub-sec">
+          <div class="sub-sec-ttl">Automation Report Server <span style="font-weight:400;color:var(--muted)">— ASP.NET WebForms</span></div>
+          <div class="ach"><ul>
+            <h4>Key Achievements:</h4>
+            <li><span class="dot"></span>Built reporting application to generate detailed execution reports in Excel format with session-wise data.</li>
+            <li><span class="dot"></span>Leveraged Azure Blob Storage for secure storage and retrieval of generated reports with automated retention policies.</li>
+            <li><span class="dot"></span>Enabled historical tracking and faster root-cause analysis, reducing incident resolution time by 35%.</li>
+          </ul></div>
+        </div>
+
+        <div class="tw-wrap" style="margin-top:.85rem">
+          <span class="badge b-sec">ASP.NET MVC</span><span class="badge b-sec">ASP.NET WebForms</span>
+          <span class="badge b-sec">Entity Framework</span><span class="badge b-sec">ADO.NET</span>
+          <span class="badge b-sec">SQL Server</span><span class="badge b-sec">Azure Blob Storage</span>
+          <span class="badge b-sec">Jenkins</span><span class="badge b-sec">REST APIs</span>
         </div>
       </div>
-      <div class="period-tag">
-        <i class="fas fa-calendar"></i>
-        2016 – 2020
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Key Highlights Section -->
-<section id="highlights" style="padding: 60px 0; background: var(--bg-secondary);">
-  <div class="section-header">
-    <div class="section-icon">
-      <i class="fas fa-star"></i>
-    </div>
-    <h2>Key Highlights</h2>
-  </div>
-  
-  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-    <div class="highlights-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
-      
-      <div class="highlight-card" style="background: var(--card-bg); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color);">
-        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-          <i class="fas fa-check-circle" style="color: var(--primary-color); font-size: 24px; margin-right: 12px;"></i>
-          <h4 style="margin: 0; color: var(--text-primary);">Production Excellence</h4>
-        </div>
-        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">Successfully delivered 15+ production features across enterprise automation and web applications with zero critical defects.</p>
       </div>
 
-      <div class="highlight-card" style="background: var(--card-bg); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color);">
-        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-          <i class="fas fa-chart-line" style="color: var(--primary-color); font-size: 24px; margin-right: 12px;"></i>
-          <h4 style="margin: 0; color: var(--text-primary);">Performance Optimization</h4>
+      <div class="exp-item">
+      <div class="card cp">
+        <div class="exp-hd">
+          <div>
+            <div class="exp-ttl">Software Engineer – .NET Backend &amp; Automation</div>
+            <div class="exp-meta">
+              <span><i class="fas fa-building" style="color:var(--primary)"></i> Mphasis Limited</span>
+              <span><i class="fas fa-map-marker-alt" style="color:var(--primary)"></i> Bengaluru, India</span>
+            </div>
+          </div>
+          <span class="badge b-out" style="display:flex;align-items:center;gap:.25rem;flex-shrink:0"><i class="fas fa-calendar" style="font-size:9px"></i> Apr 2021 – Present</span>
         </div>
-        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">Reduced automation platform failures by 20% through backend optimizations and proactive error handling.</p>
-      </div>
 
-      <div class="highlight-card" style="background: var(--card-bg); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color);">
-        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-          <i class="fas fa-database" style="color: var(--primary-color); font-size: 24px; margin-right: 12px;"></i>
-          <h4 style="margin: 0; color: var(--text-primary);">Database Excellence</h4>
-        </div>
-        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">Improved SQL query performance by 30% through indexing strategies and stored procedure optimization.</p>
-      </div>
+        <p class="exp-desc">Built and maintained a large-scale Windows-based automation platform executing test workflows across distributed enterprise environments. Integrated with ASP.NET MVC web applications for asset management, execution orchestration, and reporting analytics.</p>
 
-      <div class="highlight-card" style="background: var(--card-bg); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color);">
-        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-          <i class="fas fa-rocket" style="color: var(--primary-color); font-size: 24px; margin-right: 12px;"></i>
-          <h4 style="margin: 0; color: var(--text-primary);">DevOps Implementation</h4>
+        <div class="ach">
+          <h4>Key Achievements:</h4>
+          <ul>
+            <li><span class="dot"></span>Architected scalable backend components for the enterprise automation platform, improving execution stability by 25% and reducing system downtime.</li>
+            <li><span class="dot"></span>Designed and implemented RESTful APIs using ASP.NET MVC, enabling seamless integration with multiple client systems and third-party tools.</li>
+            <li><span class="dot"></span>Implemented CI/CD pipelines using Jenkins, reducing deployment time by 40% and minimizing manual errors.</li>
+            <li><span class="dot"></span>Optimized SQL Server queries and stored procedures, reducing execution time by 30% for high-concurrency scenarios.</li>
+            <li><span class="dot"></span>Delivered 15+ production features with zero critical defects; mentored junior developers on SOLID principles and design patterns.</li>
+          </ul>
         </div>
-        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">Implemented CI/CD practices reducing deployment time by 40% and improving release reliability.</p>
-      </div>
 
-      <div class="highlight-card" style="background: var(--card-bg); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color);">
-        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-          <i class="fas fa-code" style="color: var(--primary-color); font-size: 24px; margin-right: 12px;"></i>
-          <h4 style="margin: 0; color: var(--text-primary);">Design Principles</h4>
+        <div class="tw-wrap" style="margin-top:.85rem">
+          <span class="badge b-sec">C#</span><span class="badge b-sec">.NET Framework</span><span class="badge b-sec">.NET Core</span>
+          <span class="badge b-sec">ASP.NET MVC</span><span class="badge b-sec">Entity Framework</span>
+          <span class="badge b-sec">RESTful APIs</span><span class="badge b-sec">SQL Server</span><span class="badge b-sec">Azure</span>
+          <span class="badge b-sec">Jenkins</span><span class="badge b-sec">CI/CD</span><span class="badge b-sec">Windows Services</span>
         </div>
-        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">Strong understanding of OOP principles, SOLID design principles, and enterprise design patterns.</p>
       </div>
-
-      <div class="highlight-card" style="background: var(--card-bg); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color);">
-        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-          <i class="fas fa-bug" style="color: var(--primary-color); font-size: 24px; margin-right: 12px;"></i>
-          <h4 style="margin: 0; color: var(--text-primary);">Problem Solving</h4>
-        </div>
-        <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">Excellent problem-solving skills with expertise in debugging, performance tuning, and production issue resolution.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- Projects Section -->
-<section id="projects">
-  <div class="section-header">
-    <div class="section-icon">
-      <i class="fas fa-code"></i>
-    </div>
-    <h2>Personal Projects</h2>
-  </div>
-  
-  <div class="projects-grid">
-    <div class="card project-card">
-      <h3>Few-Shot Learning Image Classifier</h3>
-      <a href="https://github.com/Manjunathks07/few-shot-learning" target="_blank" class="github-link">
-        <i class="fab fa-github"></i> View on GitHub
-      </a>
-      <p>
-        A production-ready few-shot learning system that can learn to classify images with just 3-10 examples per class. Implements Prototypical Networks for metric-based learning with fast generalization on unseen classes.
-      </p>
-      <div class="tech-tags">
-        <span class="tech-tag">Python</span>
-        <span class="tech-tag">PyTorch</span>
-        <span class="tech-tag">Deep Learning</span>
-        <span class="tech-tag">Computer Vision</span>
+<!-- Education -->
+<section id="education" class="sec sec-muted">
+  <div class="wrap">
+    <div class="sec-hd"><div class="sec-ico"><i class="fas fa-graduation-cap"></i></div><h2>Education</h2></div>
+    <div class="edu-g">
+      <div class="card cp">
+        <div style="display:flex;gap:.85rem;align-items:flex-start">
+          <div class="edu-ico"><i class="fas fa-graduation-cap"></i></div>
+          <div>
+            <div class="edu-deg">B.E. – Electronics & Communication Engineering</div>
+            <div class="edu-sch">Visvesvaraya Technological University (VTU)</div>
+            <div class="edu-sch">East West Institute of Technology, Bengaluru</div>
+            <span class="badge b-out" style="margin-top:.4rem;display:inline-flex">2016 – 2020</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact">
-  <div class="section-header">
-    <div class="section-icon">
-      <i class="fas fa-envelope"></i>
+<!-- Skills -->
+<section id="skills" class="sec">
+  <div class="wrap">
+    <div class="sec-hd"><div class="sec-ico"><i class="fas fa-layer-group"></i></div><h2>Technical Skills</h2></div>
+    <div class="sk-g">
+      <div class="card sk-in">
+        <div class="sk-ttl">Languages & Frameworks</div>
+        <div class="sk-tags">
+          <span class="badge b-sec">C#</span><span class="badge b-sec">Python</span><span class="badge b-sec">.NET Framework</span>
+          <span class="badge b-sec">ASP.NET</span><span class="badge b-sec">ASP.NET MVC</span><span class="badge b-sec">WebForms</span>
+
+        </div>
+      </div>
+      <div class="card sk-in">
+        <div class="sk-ttl">Cloud & DevOps</div>
+        <div class="sk-tags">
+          <span class="badge b-sec">Azure App Services</span><span class="badge b-sec">Azure Storage</span>
+          <span class="badge b-sec">Application Insights</span><span class="badge b-sec">Jenkins</span>
+          <span class="badge b-sec">CI/CD</span><span class="badge b-sec">Git</span><span class="badge b-sec">IIS</span>
+        </div>
+      </div>
+      <div class="card sk-in">
+        <div class="sk-ttl">Databases & ORM</div>
+        <div class="sk-tags">
+          <span class="badge b-sec">SQL Server</span><span class="badge b-sec">MySQL</span>
+          <span class="badge b-sec">Entity Framework</span><span class="badge b-sec">ADO.NET</span>
+        </div>
+      </div>
+      <div class="card sk-in">
+        <div class="sk-ttl">Architecture & Patterns</div>
+        <div class="sk-tags">
+          <span class="badge b-sec">RESTful APIs</span><span class="badge b-sec">MVC</span>
+          <span class="badge b-sec">Repository Pattern</span><span class="badge b-sec">Dependency Injection</span>
+          <span class="badge b-sec">SOLID</span><span class="badge b-sec">OOP</span>
+        </div>
+      </div>
+      <div class="card sk-in">
+        <div class="sk-ttl">AI & Computer Vision</div>
+        <div class="sk-tags">
+          <span class="badge b-sec">OpenCV</span><span class="badge b-sec">EasyOCR</span>
+          <span class="badge b-sec">PaddleOCR</span><span class="badge b-sec">FAISS</span><span class="badge b-sec">PyTorch</span>
+        </div>
+      </div>
+      <div class="card sk-in">
+        <div class="sk-ttl">Methodologies & Tools</div>
+        <div class="sk-tags">
+          <span class="badge b-sec">Agile/Scrum</span><span class="badge b-sec">TDD</span>
+          <span class="badge b-sec">Code Reviews</span><span class="badge b-sec">Visual Studio</span>
+          <span class="badge b-sec">VS Code</span><span class="badge b-sec">SSMS</span>
+        </div>
+      </div>
     </div>
-    <h2>Get in Touch</h2>
   </div>
-  
-  <div class="contact-intro">
-    <p>I'm always interested in hearing about new opportunities, interesting projects, or just connecting with fellow professionals. Feel free to reach out!</p>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="sec sec-muted">
+  <div class="wrap">
+    <div class="sec-hd"><div class="sec-ico"><i class="fas fa-folder-open"></i></div><h2>Projects</h2></div>
+    <div class="proj-g">
+      <div class="card" style="display:flex;flex-direction:column;overflow:hidden">
+        <div class="proj-img"><i class="fas fa-brain"></i></div>
+        <div class="proj-bd">
+          <div class="proj-hd">
+            <div class="proj-ttl">Few-Shot Learning Image Classifier</div>
+            <a href="https://github.com/Manjunathks07/few-shot-learning" target="_blank" class="proj-lnk"><i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+          <p class="proj-desc">Classifies images with just 3–10 examples per class using Prototypical Networks for fast generalization on unseen categories.</p>
+          <div class="tw-wrap"><span class="badge b-sec">Python</span><span class="badge b-sec">PyTorch</span><span class="badge b-sec">Deep Learning</span><span class="badge b-sec">Computer Vision</span></div>
+        </div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;overflow:hidden">
+        <div class="proj-img"><i class="fas fa-server"></i></div>
+        <div class="proj-bd">
+          <div class="proj-hd">
+            <div class="proj-ttl">Enterprise Test Automation Platform</div>
+            <span class="proj-lnk" style="color:var(--muted)"><i class="fas fa-building"></i></span>
+          </div>
+          <p class="proj-desc">Windows-based platform executing test workflows across distributed enterprise environments with centralized ASP.NET MVC orchestration.</p>
+          <div class="tw-wrap"><span class="badge b-sec">C#</span><span class="badge b-sec">.NET</span><span class="badge b-sec">SQL Server</span><span class="badge b-sec">Azure</span><span class="badge b-sec">Jenkins</span></div>
+        </div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;overflow:hidden">
+        <div class="proj-img"><i class="fas fa-eye"></i></div>
+        <div class="proj-bd">
+          <div class="proj-hd">
+            <div class="proj-ttl">Vision AI – OCR & Screen Intelligence</div>
+            <span class="proj-lnk" style="color:var(--muted)"><i class="fas fa-building"></i></span>
+          </div>
+          <p class="proj-desc">FastAPI-powered OCR system detecting text and UI elements from screens with sub-500ms latency using FAISS indexing.</p>
+          <div class="tw-wrap"><span class="badge b-sec">Python</span><span class="badge b-sec">FastAPI</span><span class="badge b-sec">OpenCV</span><span class="badge b-sec">EasyOCR</span><span class="badge b-sec">FAISS</span></div>
+        </div>
+      </div>
+    </div>
   </div>
-  
-  <div class="contact-cards-grid">
-    <div class="contact-card">
-      <div class="contact-card-icon email-icon">
-        <i class="fas fa-envelope"></i>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="sec">
+  <div class="wrap">
+    <div class="sec-hd"><div class="sec-ico"><i class="fas fa-envelope"></i></div><h2>Get in Touch</h2></div>
+    <div class="card cp">
+      <p class="con-intro">Always open to new opportunities and interesting projects. Feel free to reach out!</p>
+      <div class="con-g">
+        <div style="display:flex;flex-direction:column;gap:.65rem">
+          <div class="con-row">
+            <div class="con-l">
+              <div class="con-ico"><i class="fas fa-envelope"></i></div>
+              <div><div class="con-lbl">Email</div><div class="con-val">Manju4233@gmail.com</div></div>
+            </div>
+            <button class="con-act" onclick="copyTxt('Manju4233@gmail.com',this)">Copy</button>
+          </div>
+          <div class="con-row">
+            <div class="con-l">
+              <div class="con-ico"><i class="fas fa-phone"></i></div>
+              <div><div class="con-lbl">Phone</div><div class="con-val">+91 9538347522</div></div>
+            </div>
+            <button class="con-act" onclick="copyTxt('+91 9538347522',this)">Copy</button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.65rem">
+          <div class="con-row">
+            <div class="con-l">
+              <div class="con-ico" style="color:#0a66c2;background:rgba(10,102,194,.1)"><i class="fab fa-linkedin-in"></i></div>
+              <div><div class="con-lbl">LinkedIn</div><div class="con-val">linkedin.com/in/manjunath-ks-b12992203</div></div>
+            </div>
+            <a href="https://www.linkedin.com/in/manjunath-ks-b12992203/" target="_blank" class="con-act"><i class="fas fa-external-link-alt"></i></a>
+          </div>
+          <div class="con-row">
+            <div class="con-l">
+              <div class="con-ico" style="color:#333;background:rgba(0,0,0,.06)"><i class="fab fa-github"></i></div>
+              <div><div class="con-lbl">GitHub</div><div class="con-val">github.com/Manjunathks07</div></div>
+            </div>
+            <a href="https://github.com/Manjunathks07" target="_blank" class="con-act"><i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
       </div>
-      <div class="contact-card-content">
-        <div class="contact-card-label">Email</div>
-        <div class="contact-card-value">Manju4233@gmail.com</div>
-      </div>
-      <button class="contact-card-action" onclick="copyToClipboard('Manju4233@gmail.com', this)">
-        <i class="fas fa-copy"></i> Copy
-      </button>
-    </div>
-    
-    <div class="contact-card">
-      <div class="contact-card-icon linkedin-icon">
-        <i class="fab fa-linkedin-in"></i>
-      </div>
-      <div class="contact-card-content">
-        <div class="contact-card-label">LinkedIn</div>
-        <div class="contact-card-value">linkedin.com/in/manjunath-ks-b12992203</div>
-      </div>
-      <a href="https://www.linkedin.com/in/manjunath-ks-b12992203/" target="_blank" class="contact-card-action">
-        <i class="fas fa-external-link-alt"></i>
-      </a>
-    </div>
-    
-    <div class="contact-card">
-      <div class="contact-card-icon phone-icon">
-        <i class="fas fa-phone"></i>
-      </div>
-      <div class="contact-card-content">
-        <div class="contact-card-label">Phone</div>
-        <div class="contact-card-value">+91 9538347522</div>
-      </div>
-      <button class="contact-card-action" onclick="copyToClipboard('+91 9538347522', this)">
-        <i class="fas fa-copy"></i> Copy
-      </button>
-    </div>
-    
-    <div class="contact-card">
-      <div class="contact-card-icon github-icon">
-        <i class="fab fa-github"></i>
-      </div>
-      <div class="contact-card-content">
-        <div class="contact-card-label">GitHub</div>
-        <div class="contact-card-value">github.com/Manjunathks07</div>
-      </div>
-      <a href="https://github.com/Manjunathks07" target="_blank" class="contact-card-action">
-        <i class="fas fa-external-link-alt"></i>
-      </a>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Manjunath KS. All Rights Reserved. Built with passion ❤️</p>
+  <div class="ft-in">
+    <p>Manjunath KS Portfolio</p>
+    <p>Built with passion ❤️</p>
+  </div>
 </footer>
 
-<script src="assets/js/script.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Cursor glow
+  const dot = document.getElementById('glow-dot');
+  window.addEventListener('pointermove', e => { dot.style.left = e.clientX+'px'; dot.style.top = e.clientY+'px'; });
 
+  // Theme
+  const themeBtn = document.getElementById('themeBtn');
+  const themeIco = document.getElementById('themeIco');
+  let dark = localStorage.getItem('theme') === 'dark';
+  function applyTheme() { document.documentElement.classList.toggle('dark', dark); themeIco.className = dark ? 'fas fa-sun' : 'fas fa-moon'; }
+  function toggleTheme() { dark = !dark; localStorage.setItem('theme', dark?'dark':'light'); applyTheme(); }
+  themeBtn.addEventListener('click', toggleTheme);
+  applyTheme();
+
+  // Mobile menu
+  const mobNav = document.getElementById('mobNav');
+  const menuIco = document.getElementById('menuIco');
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    const o = mobNav.classList.toggle('open');
+    menuIco.className = o ? 'fas fa-xmark' : 'fas fa-bars';
+  });
+  function closeMob() { mobNav.classList.remove('open'); menuIco.className = 'fas fa-bars'; }
+
+  // Stat counters
+  function countUp(el, target, suffix='') {
+    const t0 = performance.now();
+    const run = now => {
+      const p = Math.min(1,(now-t0)/1100);
+      el.textContent = Math.floor(p*target) + (p===1?suffix:'');
+      if(p<1) requestAnimationFrame(run);
+    };
+    requestAnimationFrame(run);
+  }
+  let done = false;
+  new IntersectionObserver(([e]) => {
+    if(e.isIntersecting && !done) { done=true; countUp(document.getElementById('s0'),5); countUp(document.getElementById('s1'),15,'+'); }
+  },{threshold:.4}).observe(document.getElementById('stats'));
+
+  // Weather
+  const wxMap = {0:{d:'Clear sky',i:'☀️'},1:{d:'Mainly clear',i:'🌤️'},2:{d:'Partly cloudy',i:'🌤️'},3:{d:'Overcast',i:'☁️'},45:{d:'Foggy',i:'🌫️'},51:{d:'Drizzle',i:'🌦️'},61:{d:'Rain',i:'🌦️'},63:{d:'Rain',i:'🌧️'},80:{d:'Showers',i:'🌦️'},95:{d:'Thunderstorm',i:'⛈️'}};
+  [{id:0,lat:12.97,lon:77.59},{id:1,lat:19.07,lon:72.87},{id:2,lat:28.61,lon:77.20}].forEach(loc => {
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&current=temperature_2m,weather_code`)
+      .then(r=>r.json()).then(d => {
+        const {d:desc,i:icon} = wxMap[d.current.weather_code] || {d:'Weather',i:'🌤️'};
+        const item = document.getElementById('wxGrid').children[loc.id];
+        item.querySelector('.wx-ico').textContent = icon;
+        item.querySelector('.wx-desc').textContent = `• ${Math.round(d.current.temperature_2m)}°C, ${desc}`;
+      }).catch(()=>{});
+  });
+
+  // Copy
+  function copyTxt(text, btn) {
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.style.color = 'var(--success)';
+      setTimeout(() => { btn.textContent = orig; btn.style.color = ''; }, 1500);
+    }).catch(() => {});
+  }
+</script>
 </body>
 </html>
